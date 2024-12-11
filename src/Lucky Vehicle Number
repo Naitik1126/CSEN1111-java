@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class LuckyVehicleNumber {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter your vehicle number: ");
+        int vehicleNumber = scanner.nextInt();
+
+        int sum = vehicleNumber;
+        while (sum >= 10) {
+            int tempSum = 0;
+            while (sum > 0) {
+                tempSum += sum % 10;
+                sum /= 10;
+            }
+            sum = tempSum;
+        }
+
+        System.out.print("Enter your lucky number (single digit): ");
+        int luckyNumber = scanner.nextInt();
+
+        if (sum == luckyNumber) {
+            System.out.println("Your vehicle number is lucky!");
+        } else {
+            System.out.println("Your vehicle number is not lucky.");
+        }
+    }
+}
